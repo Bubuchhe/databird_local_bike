@@ -1,0 +1,144 @@
+version: 2
+
+models:
+  - name: stg_databird_local_bike__brands
+    description: "Staging table for the brands data"
+    columns:
+      - name: brand_id
+        description: "ID of the brand, Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: brand_name
+        description: "Name of the brand"
+
+  - name: stg_databird_local_bike__categories
+    description: "Staging table for the categories data"
+    columns:
+      - name: category_id
+        description: "ID of the category, Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: category_name
+        description: "Name of the category"
+
+  - name: stg_databird_local_bike__customers
+    description: "Staging table for the customers data"
+    columns:
+      - name: customer_id
+        description: "ID of the customer, Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: "First name of the customer"
+      - name: last_name
+        description: "Last name of the customer"
+
+  - name: stg_databird_local_bike__order_items
+    description: "Staging table for the order items data"
+    columns:
+      - name: order_id
+        description: "ID of the order, Foreign key"
+        tests:
+          - not_null
+      - name: item_id
+        description: "ID of the order item, Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: "ID of the product, Foreign key"
+        tests:
+          - not_null
+
+  - name: stg_databird_local_bike__orders
+    description: "Staging table for the orders data"
+    columns:
+      - name: order_id
+        description: "ID of the order, Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "ID of the customer, Foreign key"
+        tests:
+          - not_null
+      - name: store_id
+        description: "ID of the store, Foreign key"
+        tests:
+          - not_null
+      - name: staff_id
+        description: "ID of the staff, Foreign key"
+        tests:
+          - not_null
+      - name: order_status
+        description: "Status of the order"
+      - name: order_date
+        description: "Date of the order"
+      - name: shipped_date
+        description: "Date of the order"
+
+  - name: stg_databird_local_bike__products
+    description: "Staging table for the products data"
+    columns:
+      - name: product_id
+        description: "ID of the product, Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: "Name of the product"
+      - name: product_description
+        description: "Description of the product"
+      - name: brand_id
+        description: "ID of the brand, Foreign key"
+        tests:
+          - not_null
+      - name: category_id
+        description: "ID of the category, Foreign key"
+        tests:
+          - not_null
+
+  - name: stg_databird_local_bike__staffs
+    description: "Staging table for the staffs data"
+    columns:
+      - name: staff_id
+        description: "ID of the staff, Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: store_id
+        description: "ID of the store, Foreign key"
+        tests:
+          - not_null
+      - name: manager_id
+        description: "ID of the manager, Foreign key"
+        tests:
+          - not_null
+
+  - name: stg_databird_local_bike__stocks
+    description: "Staging table for the stocks data"
+    columns:
+      - name: store_id
+        description: "ID of the store, Foreign key"
+        tests:
+          - not_null
+      - name: product_id
+        description: "ID of the product, Foreign key"
+        tests:
+          - not_null
+      - name: quantity
+        description: "Quantity of the product in the store"
+
+  - name: stg_databird_local_bike__stores
+    description: "Staging table for the stores data"
+    columns:
+      - name: store_id
+        description: "ID of the store, Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: store_name
+        description: "Name of the store"
