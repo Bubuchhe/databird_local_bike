@@ -38,11 +38,11 @@ models:
   databird_local_bike:
     staging:
       materialized: view
-      custom_analytics:
+      sales_database:
         schema: dbt_staging_databird_local_bike
     intermediate:
       materialized: view
-      custom_analytics:
+      sales_database:
         schema: dbt_intermediate_databird_local_bike
     mart:
       materialized: table

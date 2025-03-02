@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: databird_local_bike
+    schema: databird_local_bike
+    tables:
+      - name: brands
+        description: "Brands information raw data"
+      - name: categories
+        description: "Categories information raw data"
+      - name: customers
+        description: "Customers information raw data"
+      - name: order_items
+        description: "Order items information raw data"
+      - name: orders
+        description: "Orders information raw data"
+      - name: products
+        description: "Products information raw data"
+      - name: stores
+        description: "Stores information raw data"
+      - name: staffs
+        description: "Staffs information raw data"
+      - name: stocks
+        description: "Stocks information raw data"
