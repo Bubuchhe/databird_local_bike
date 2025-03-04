@@ -1,4 +1,4 @@
-WITH product_sales AS (
+    WITH product_sales AS (
     SELECT
         product_id,
         product_name,
