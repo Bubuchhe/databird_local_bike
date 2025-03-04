@@ -1,0 +1,29 @@
+version: 2 
+
+models:
+    - name: int_sales_database__product_details
+      description: "Intermediate table for the product details"
+      columns:
+        - name: product_id
+          description: "ID of the product, Primary key"
+          tests:
+            - unique
+            - not_null
+        - name: product_name
+          description: "Name of the product"
+        - name: category_name
+          description: "Name of the category"
+        - name: brand_name
+          description: "Name of the brand"
+        - name: category_id
+          description: "ID of the category, Foreign key"
+          tests:
+            - not_null
+        - name: brand_id
+          description: "ID of the brand, Foreign key"
+          tests:
+            - not_null
+        - name: model_year
+          description: "Year of the model"
+        - name: unit_price
+          description: "Unit price of the product"

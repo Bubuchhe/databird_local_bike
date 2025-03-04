@@ -1,0 +1,43 @@
+version: 2
+
+models:
+    - name: int_sales_database__orders_aggregated
+      description: "Intermediate table for orders aggregated"
+      columns:
+        - name: order_id
+          description: "ID of the order, Primary key"
+          tests:
+            - unique
+            - not_null
+        - name: order_date
+          description: "Date of the order"
+        - name: shipped_date
+          description: "Date of the shipment"
+        - name: store_id
+          description: "ID of the store, Foreign key"
+          tests:
+            - not_null
+        - name: store_name
+          description: "Name of the store"
+        - name: customer_id
+          description: "ID of the customer, Foreign key"
+          tests:
+            - not_null
+        - name: customer_name
+          description: "Name of the customer"
+        - name: staff_name
+          description: "Name of the staff"
+        - name: staff_id
+          description: "ID of the staff, Foreign key"
+          tests:
+            - not_null
+        - name: order_status
+          description: "Status of the order"
+        - name: total_revenue
+          description: "Total revenue"
+        - name: total_items
+          description: "Total items"
+        - name: delivery_time
+          description: "Delivery time"
+        - name: products
+          description: "Products tab aggregated with the list of products in the order"

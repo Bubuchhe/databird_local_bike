@@ -1,0 +1,27 @@
+version: 2
+
+models:
+    - name: int_sales_database__employee_sales_performance
+      description: "Intermediate table for the employee sales performance data"
+      columns:
+        - name: staff_id
+          description: "ID of the employee, Primary key"
+          tests:
+            - unique
+            - not_null
+        - name: staff_name
+          description: "Name of the employee"
+        - name: store_id
+          description: "ID of the store, Foreign key"
+          tests:
+            - not_null
+        - name: store_name
+          description: "Name of the store"
+        - name: month
+          description: "Month of the sales"
+        - name: total_sales
+          description: "Total sales"
+        - name: total_orders
+          description: "Total orders"
+        - name: total_products_sold
+          description: "Number of products sold"

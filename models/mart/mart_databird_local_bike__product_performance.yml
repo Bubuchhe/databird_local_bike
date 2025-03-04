@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: mart_databird_local_bike__product_performance
+    description: "Mart table for the product performance data"
+    columns:
+      - name: product_id
+        description: "ID of the product, Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: "Name of the product"
+      - name: category_name
+        description: "Name of the category"
+      - name: brand_name
+        description: "Name of the brand"
+      - name: month
+        description: "Month of the sales"
+      - name: total_units_sold
+        description: "Total units sold"
+      - name: total_revenue
+        description: "Total revenue"
+      - name: avg_price_sold
+        description: "Average price sold"
+      - name: sales_percentage
+        description: "Percentage of sales"
+      - name: revenue_rank
+        description: "Rank of the revenue"
+      - name: category_revenue_rank
+        description: "Rank of the revenue in the category"
+      - name: moving_avg_revenue
+        description: "Moving average revenue"
+      - name: revenue_growth_percentage
+        description: "Growth percentage of the revenue"
+      - name: category_sales_percentage
+        description: "Percentage of sales in the category"
+      - name: brand_sales_percentage
+        description: "Percentage of sales in the brand"
