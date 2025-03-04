@@ -1,0 +1,66 @@
+version: 2
+
+models:
+  - name: int_sales_database__customer_order_history
+    description: "Analyse détaillée de l'historique des commandes clients avec métriques d'engagement et préférences d'achat"
+    columns:
+      - name: customer_id
+        description: "Identifiant unique du client"
+        tests:
+          - unique
+          - not_null
+
+      - name: customer_name
+        description: "Nom complet du client"
+        tests:
+          - not_null
+
+      - name: lifetime_orders
+        description: "Nombre total de commandes effectuées par le client"
+        tests:
+          - not_null
+          - positive_value
+
+      - name: lifetime_items
+        description: "Nombre total d'articles achetés par le client"
+        tests:
+          - not_null
+          - positive_value
+
+      - name: lifetime_revenue
+        description: "Montant total dépensé par le client"
+        tests:
+          - not_null
+          - positive_value
+
+      - name: first_order_date
+        description: "Date de la première commande du client"
+        tests:
+          - not_null
+
+      - name: last_order_date
+        description: "Date de la dernière commande du client"
+        tests:
+          - not_null
+
+      - name: avg_days_between_orders
+        description: "Nombre moyen de jours entre les commandes du client"
+        tests:
+          - positive_value
+
+      - name: avg_order_value
+        description: "Valeur moyenne des commandes du client"
+        tests:
+          - positive_value
+
+      - name: category_preferences
+        description: "Structure contenant les préférences d'achat par catégorie du client"
+        tests:
+          - not_null
+
+      - name: customer_segment
+        description: "Segment du client (VIP, Regular, Returning, New) basé sur le nombre de commandes"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['VIP', 'Regular', 'Returning', 'New']
