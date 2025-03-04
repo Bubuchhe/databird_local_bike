@@ -1,0 +1,31 @@
+version: 2
+
+models:
+    - name: int_sales_database__store_performance
+      description: "Intermediate table for the store performance data"
+      columns:
+        - name: store_id
+          description: "ID of the store, Primary key"
+          tests:
+            - unique
+            - not_null
+        - name: store_name
+          description: "Name of the store"
+        - name: city
+          description: "City of the store"
+        - name: state
+          description: "State of the store"
+        - name: month
+          description: "Month of the sales"
+        - name: total_orders
+          description: "Total orders"
+        - name: avg_delivery_time
+          description: "Average delivery time"
+        - name: total_stock_available
+          description: "Total stock available"
+        - name: total_sales
+          description: "Total sales"
+        - name: total_products_sold
+          description: "Total products sold"
+        - name: sales_rank
+          description: "Sales rank"

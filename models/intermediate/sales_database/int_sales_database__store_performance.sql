@@ -33,7 +33,7 @@ final AS (
         s.store_name,
         s.city,
         s.state,
-        DATE_TRUNC(om.order_date, MONTH) AS order_date,
+        DATE_TRUNC(om.order_date, MONTH) AS month,
         COALESCE(om.total_orders, 0) AS total_orders,
         COALESCE(om.avg_delivery_time, 0) AS avg_delivery_time,
         COALESCE(sm.total_stock_available, 0) AS total_stock_available,

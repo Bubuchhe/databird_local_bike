@@ -17,6 +17,7 @@ with get_product_sales_aggregations AS (
     p.category_name,
     p.category_id,
     p.brand_name,
+    p.brand_id,
     sa.store_id,
     sa.store_name,
     sa.month,

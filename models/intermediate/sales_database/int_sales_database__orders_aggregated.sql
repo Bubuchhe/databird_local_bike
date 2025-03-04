@@ -24,7 +24,7 @@ WITH get_sales_infos_aggregations_by_order AS (
 ),
 
 get_orders_enriched AS (
-    SELECT 
+    SELECT
         o.order_id,
         o.customer_id,
         c.first_name || ' ' || c.last_name AS customer_name,

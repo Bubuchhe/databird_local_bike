@@ -1,0 +1,25 @@
+version: 2
+
+models:
+    - name: int_sales_database__sales_per_category
+      description: "Intermediate table for the sales per category data"
+      columns:
+        - name: category_id
+          description: "ID of the category, Primary key"
+          tests:
+            - unique
+            - not_null
+        - name: category_name
+          description: "Name of the category"
+        - name: month
+          description: "Month of the sales"
+        - name: total_sales
+          description: "Total sales"
+        - name: total_units_sold
+          description: "Total units sold"
+        - name: total_revenue
+          description: "Total revenue"
+        - name: avg_category_price
+          description: "Average price sold"
+        - name: sales_percentage
+          description: "Percentage of sales"
