@@ -3,9 +3,9 @@ WITH get_order_aggregations AS (
         order_id,
         store_id,
         order_date,
-        SUM(quantity) AS total_products_sold,
-        SUM(total_price) AS total_sales
-    FROM {{ref('int_sales_database__order_details')}}
+        SUM(total_items) AS total_products_sold,
+        SUM(total_revenue) AS total_sales
+    FROM {{ref('int_sales_database__orders_aggregated')}}
     GROUP BY 1, 2, 3
 ),
 
@@ -15,7 +15,7 @@ get_store_scoped_order_metrics AS (
         order_date,
         COUNT(DISTINCT order_id) AS total_orders,
         AVG(delivery_time) AS avg_delivery_time
-    FROM {{ref('int_sales_database__order_details')}}
+    FROM {{ref('int_sales_database__orders_aggregated')}}
     GROUP BY 1, 2
 ),
 
