@@ -1,0 +1,89 @@
+version: 2
+
+models:
+  - name: mart_databird_local_bike__customer_insigths
+    description: "Vue complète des clients avec métriques de performance, tendances d'achat et statut d'engagement"
+    columns:
+      - name: customer_id
+        description: "Identifiant unique du client"
+        tests:
+          - unique
+          - not_null
+
+      - name: customer_name
+        description: "Nom complet du client"
+        tests:
+          - not_null
+
+      - name: lifetime_orders
+        description: "Nombre total de commandes effectuées par le client"
+        tests:
+          - not_null
+
+      - name: lifetime_items
+        description: "Nombre total d'articles achetés par le client"
+        tests:
+          - not_null
+
+      - name: lifetime_revenue
+        description: "Montant total dépensé par le client depuis sa première commande"
+        tests:
+          - not_null
+
+      - name: first_order_date
+        description: "Date de la première commande du client"
+        tests:
+          - not_null
+
+      - name: last_order_date
+        description: "Date de la dernière commande du client"
+        tests:
+          - not_null
+
+      - name: avg_days_between_orders
+        description: "Nombre moyen de jours entre les commandes du client"
+
+      - name: avg_order_value
+        description: "Valeur moyenne des commandes du client"
+
+      - name: customer_segment
+        description: "Segment du client (VIP, Regular, Returning, New) basé sur le nombre de commandes"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['VIP', 'Regular', 'Returning', 'New']
+
+      - name: category_preferences
+        description: "Structure contenant les préférences d'achat par catégorie du client"
+        tests:
+          - not_null
+
+      - name: last_active_month
+        description: "Dernier mois d'activité du client"
+        tests:
+          - not_null
+
+      - name: last_month_orders
+        description: "Nombre de commandes du dernier mois d'activité"
+        tests:
+          - not_null
+
+      - name: last_month_revenue
+        description: "Chiffre d'affaires du dernier mois d'activité"
+        tests:
+          - not_null
+
+      - name: month_over_month_growth
+        description: "Pourcentage de croissance du CA par rapport au mois précédent"
+
+      - name: days_since_last_order
+        description: "Nombre de jours depuis la dernière commande"
+        tests:
+          - not_null
+
+      - name: activity_status
+        description: "Statut d'activité du client (Active: <30j, At Risk: 30-90j, Churned: >90j)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Active', 'At Risk', 'Churned']
