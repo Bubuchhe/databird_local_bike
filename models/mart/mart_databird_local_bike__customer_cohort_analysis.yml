@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: mart_databird_local_bike__customer_cohort_analysis
+    description: "Analyse des cohortes clients pour suivre la rétention et la performance dans le temps"
+    columns:
+      - name: cohort_month
+        description: "Mois de première commande du client"
+        tests:
+          - not_null
+
+      - name: activity_month
+        description: "Mois d'activité analysé"
+        tests:
+          - not_null
+
+      - name: months_since_first_purchase
+        description: "Nombre de mois depuis la première commande"
+        tests:
+          - not_null
+
+      - name: total_customers
+        description: "Nombre de clients actifs"
+        tests:
+          - not_null
+
+      - name: total_revenue
+        description: "Chiffre d'affaires total"
+        tests:
+          - not_null
+
+      - name: total_orders
+        description: "Nombre total de commandes"
+        tests:
+          - not_null
+
+      - name: revenue_per_customer
+        description: "Revenu moyen par client"
+        tests:
+          - not_null
+
+      - name: orders_per_customer
+        description: "Nombre moyen de commandes par client"
+        tests:
+          - not_null
+
+      - name: retention_rate
+        description: "Pourcentage de clients toujours actifs"
+        tests:
+          - not_null

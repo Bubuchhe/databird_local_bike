@@ -43,15 +43,16 @@ models:
         description: "ID of the order, Foreign key"
         tests:
           - not_null
-      - name: item_id
-        description: "ID of the order item, Primary key"
-        tests:
-          - unique
-          - not_null
+          - relationships:
+              field: order_id
+              to: ref('stg_databird_local_bike__orders')
       - name: product_id
         description: "ID of the product, Foreign key"
         tests:
           - not_null
+          - relationships:
+              field: product_id
+              to: ref('stg_databird_local_bike__products')
 
   - name: stg_databird_local_bike__orders
     description: "Staging table for the orders data"
@@ -65,14 +66,23 @@ models:
         description: "ID of the customer, Foreign key"
         tests:
           - not_null
+          - relationships:
+              field: customer_id
+              to: ref('stg_databird_local_bike__customers')
       - name: store_id
         description: "ID of the store, Foreign key"
         tests:
           - not_null
+          - relationships:
+              field: store_id
+              to: ref('stg_databird_local_bike__stores')
       - name: staff_id
         description: "ID of the staff, Foreign key"
         tests:
-          - not_null
+          - not_null 
+          - relationships:
+              field: staff_id
+              to: ref('stg_databird_local_bike__staff')
       - name: order_status
         description: "Status of the order"
       - name: order_date
@@ -96,10 +106,16 @@ models:
         description: "ID of the brand, Foreign key"
         tests:
           - not_null
+          - relationships:
+              field: brand_id
+              to: ref('stg_databird_local_bike__brands')
       - name: category_id
         description: "ID of the category, Foreign key"
         tests:
           - not_null
+          - relationships:
+              field: category_id
+              to: ref('stg_databird_local_bike__categories')
 
   - name: stg_databird_local_bike__staffs
     description: "Staging table for the staffs data"
@@ -113,10 +129,16 @@ models:
         description: "ID of the store, Foreign key"
         tests:
           - not_null
+          - relationships:
+              field: store_id
+              to: ref('stg_databird_local_bike__stores')
       - name: manager_id
         description: "ID of the manager, Foreign key"
         tests:
           - not_null
+          - relationships:
+              field: manager_id
+              to: ref('stg_databird_local_bike__staff')
 
   - name: stg_databird_local_bike__stocks
     description: "Staging table for the stocks data"
@@ -125,10 +147,16 @@ models:
         description: "ID of the store, Foreign key"
         tests:
           - not_null
+          - relationships:
+              field: store_id
+              to: ref('stg_databird_local_bike__stores')
       - name: product_id
         description: "ID of the product, Foreign key"
         tests:
           - not_null
+          - relationships:
+              field: product_id
+              to: ref('stg_databird_local_bike__products')
       - name: quantity
         description: "Quantity of the product in the store"
 

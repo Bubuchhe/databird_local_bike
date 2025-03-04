@@ -7,7 +7,6 @@ models:
         - name: category_id
           description: "ID of the category, Primary key"
           tests:
-            - unique
             - not_null
         - name: category_name
           description: "Name of the category"

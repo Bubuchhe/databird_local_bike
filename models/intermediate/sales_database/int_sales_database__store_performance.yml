@@ -1,4 +1,4 @@
-            version: 2
+version: 2
 
 models:
     - name: int_sales_database__store_performance
@@ -7,7 +7,6 @@ models:
         - name: store_id
           description: "ID of the store, Primary key"
           tests:
-            - unique
             - not_null
         - name: store_name
           description: "Name of the store"

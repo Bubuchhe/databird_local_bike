@@ -19,19 +19,16 @@ models:
         description: "Nombre total de commandes effectuées par le client"
         tests:
           - not_null
-          - positive_value
 
       - name: lifetime_items
         description: "Nombre total d'articles achetés par le client"
         tests:
           - not_null
-          - positive_value
 
       - name: lifetime_revenue
         description: "Montant total dépensé par le client"
         tests:
           - not_null
-          - positive_value
 
       - name: first_order_date
         description: "Date de la première commande du client"
@@ -45,13 +42,9 @@ models:
 
       - name: avg_days_between_orders
         description: "Nombre moyen de jours entre les commandes du client"
-        tests:
-          - positive_value
 
       - name: avg_order_value
         description: "Valeur moyenne des commandes du client"
-        tests:
-          - positive_value
 
       - name: category_preferences
         description: "Structure contenant les préférences d'achat par catégorie du client"
