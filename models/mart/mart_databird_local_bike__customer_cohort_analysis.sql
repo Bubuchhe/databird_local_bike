@@ -38,7 +38,15 @@ cohort_analysis AS (
 SELECT
     cohort_month,
     activity_month,
-    months_since_first_purchase,
+    --months_since_first_purchase,
+    (CASE 
+        WHEN months_since_first_purchase = 0 THEN 0
+        WHEN months_since_first_purchase BETWEEN 1 AND 6 THEN 1
+        WHEN months_since_first_purchase BETWEEN 7 AND 12 THEN 2
+        WHEN months_since_first_purchase BETWEEN 13 AND 18 THEN 3
+        WHEN months_since_first_purchase BETWEEN 19 AND 25 THEN 4
+        WHEN months_since_first_purchase > 25 THEN 5
+    END) AS semester_since_first_purchase,
     total_customers,
     total_revenue,
     total_orders,
@@ -60,4 +68,4 @@ SELECT
     ) as retention_rate
 FROM cohort_analysis
 WHERE months_since_first_purchase >= 0
-ORDER BY cohort_month, months_since_first_purchase
+ORDER BY cohort_month, semester_since_first_purchase
